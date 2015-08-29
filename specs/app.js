@@ -15,9 +15,11 @@ describe('ngSandbox', function() {
         'unicornLauncherAfactory',
         'unicornLauncherBfactory',
         //'unicornLauncherCfactory',
+        'unicornLauncherDfactory',
         'unicornLauncherAservice',
         'unicornLauncherBservice',
-        'unicornLauncherCservice'
+        'unicornLauncherCservice',
+        'unicornLauncherDservice'
     ];
 
     var tested;
