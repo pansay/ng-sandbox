@@ -1,0 +1,25 @@
+{
+  "name": "ng-sandbox",
+  "version": "0.0.0",
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pansay/ng-sandbox.git"
+  },
+  "author": "pansay",
+  "bugs": {
+    "url": "https://github.com/pansay/ng-sandbox/issues"
+  },
+  "homepage": "https://github.com/pansay/ng-sandbox",
+  "dependencies": {
+    "bower": "^1.5.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18"
+  }
+}
