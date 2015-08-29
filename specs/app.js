@@ -3,7 +3,7 @@
 describe('ngSandbox', function() {
 
     it('should be defined', function() {
-        expect(angular.module('ngSandbox').toBeDefined());
+        expect(angular.module('sandbox')).toBeDefined();
     });
 
 });
