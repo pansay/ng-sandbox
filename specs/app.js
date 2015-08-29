@@ -2,7 +2,7 @@
 
 describe('ngSandbox', function() {
 
-    var injected = {};
+    //var injected = {};
     var expected = {};
 
     expected.token = 'abc';
@@ -11,33 +11,42 @@ describe('ngSandbox', function() {
         expect(angular.module('sandbox')).toBeDefined();
     });
 
-    beforeEach(module('sandbox'));
-
     var variants = [
-        'unicornLauncherFactoryA',
-        'unicornLauncherFactoryB'
+        'unicornLauncherAfactory',
+        'unicornLauncherBfactory',
+        //'unicornLauncherCfactory',
+        'unicornLauncherAservice',
+        'unicornLauncherBservice',
+        'unicornLauncherCservice'
     ];
 
-    for (var i = 0; i < variants.length; ++i) {
+    var tested;
 
-        var tested = variants[i];
+    beforeEach(module('sandbox'));
+
+    function test(tested) {
 
         beforeEach(inject(function($injector) {
-            injected.tested = $injector.get(tested);
+            this.tested = $injector.get(tested);
         }));
 
-        describe(tested, function() {
-
-            it('should be defined', function() {
-                expect(injected.tested).toBeDefined();
-            });
-
-            it('should have the token', function() {
-                expect(injected.tested.getToken).toBeDefined();
-                expect(injected.tested.getToken).toBe(expected.token);
-            });
-
+        it('should be defined', function() {
+            expect(this.tested).toBeDefined();
         });
+
+        it('should have the token', function() {
+            expect(this.tested.getToken).toBeDefined();
+            expect(this.tested.getToken).toBe(expected.token);
+        });
+    }
+
+    var i;
+    for (i = 0; i < variants.length; ++i) {
+        tested = variants[i];
+        describe(tested, function() {
+            test(tested);
+        });
+
     }
 
 });

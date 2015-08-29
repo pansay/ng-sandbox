@@ -3,28 +3,25 @@
 angular.module('sandbox', [])
     .constant('token', 'abc');
 
-function unicornLauncherFactoryA (token) {
-    // this.token = token;
-    // this.launchedCount = 0;
-    // this.launch = function() {
-    //     this.launchedCount++;
-    // };
+function unicornLauncherA (token) {
     return {
         getToken: token
     };
 }
 
-var unicornLauncherFactoryB = function (token) {
-    // this.token = token;
-    // this.launchedCount = 0;
-    // this.launch = function() {
-    //     this.launchedCount++;
-    // };
-    return {
-        getToken: token
-    };
-};
+function unicornLauncherB (token) {
+    this.getToken = token;
+    return this;
+}
+
+function unicornLauncherC (token) {
+    this.getToken = token;
+}
 
 angular.module('sandbox')
-    .factory('unicornLauncherFactoryA', ['token', unicornLauncherFactoryA])
-    .factory('unicornLauncherFactoryB', ['token', unicornLauncherFactoryB]);
+    .factory('unicornLauncherAfactory', ['token', unicornLauncherA])
+    .factory('unicornLauncherBfactory', ['token', unicornLauncherB])
+    .factory('unicornLauncherCfactory', ['token', unicornLauncherC])
+    .service('unicornLauncherAservice', ['token', unicornLauncherA])
+    .service('unicornLauncherBservice', ['token', unicornLauncherB])
+    .service('unicornLauncherCservice', ['token', unicornLauncherC]);
