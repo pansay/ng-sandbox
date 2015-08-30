@@ -2,10 +2,9 @@
 
 describe('ngSandbox', function() {
 
-    //var injected = {};
     var expected = {};
 
-    expected.token = 'abc';
+    expected.token = 'abcdef';
 
     it('should be defined', function() {
         expect(angular.module('sandbox')).toBeDefined();
@@ -19,10 +18,9 @@ describe('ngSandbox', function() {
         'unicornLauncherAservice',
         'unicornLauncherBservice',
         'unicornLauncherCservice',
-        'unicornLauncherDservice'
+        'unicornLauncherDservice',
+        'unicornLauncherEservice'
     ];
-
-    var tested;
 
     beforeEach(module('sandbox'));
 
@@ -42,7 +40,8 @@ describe('ngSandbox', function() {
         });
     }
 
-    var i;
+    var tested,
+        i;
     for (i = 0; i < variants.length; ++i) {
         tested = variants[i];
         describe(tested, function() {
