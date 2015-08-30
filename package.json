@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "postinstall": "bower install",
-    "pretest": "eslint src/app.js specs/app.js",
+    "pretest": "eslint src/*.js specs/*.js",
     "test": "karma start"
   },
   "repository": {
