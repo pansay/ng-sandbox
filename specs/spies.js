@@ -8,47 +8,70 @@ describe('spies', function() {
 
     beforeEach(module('spies'));
 
-    describe('someApiService', function() {
+    describe('service1', function() {
 
         beforeEach(inject(function($injector) {
-            this.someApi = $injector.get('someApi');
+            this.service1 = $injector.get('service1');
         }));
 
         it('should be defined', function() {
-            expect(this.someApi).toBeDefined();
+            expect(this.service1).toBeDefined();
         });
 
-        it('should return `oho`', function() {
-            expect(this.someApi.getTest).toBe('oho');
-        });
-
-        it('should return `oho` too from testB', function() {
-            expect(this.someApi.getTestB()).toBe('oho');
+        it('should return `whatsoever`', function() {
+            expect(this.service1.getTest()).toBe('whatsoever');
         });
 
     });
 
-    describe('someApiService - spied on', function() {
+    describe('service2', function() {
 
         beforeEach(inject(function($injector) {
-            this.someApi = $injector.get('someApi');
-            spyOn(this.someApi, 'getTest').and.returnValue('oho');
-            //spyOn(this.someApi, 'getTestB').and.returnValue('oho');
-            spyOn(this.someApi, 'getTestB').and.callThrough();
+            this.service2 = $injector.get('service2');
         }));
 
         it('should be defined', function() {
-            expect(this.someApi).toBeDefined();
+            expect(this.service2).toBeDefined();
         });
 
-        it('should return `oho`', function() {
-            expect(this.someApi.getTest()).toBe('oho');
+        it('should return `whatsoever`', function() {
+            expect(this.service2.getTest()).toBe('whatsoever');
         });
 
-        it('should return `oho` too from testB', function() {
-            expect(this.someApi.getTestB()).toBe('oho');
+    });
+
+    describe('service1 - spied on', function() {
+
+        beforeEach(inject(function($injector) {
+            this.service1 = $injector.get('service1');
+            spyOn(this.service1, 'getTest').and.returnValue('whatsoever');
+        }));
+
+        it('should be defined', function() {
+            expect(this.service1).toBeDefined();
         });
 
+        it('should return `whatsoever`', function() {
+            expect(this.service1.getTest()).toBe('whatsoever');
+        });
+
+    });
+
+    describe('service2 - spied on', function() {
+
+        beforeEach(inject(function($injector) {
+            this.service1 = $injector.get('service1');
+            this.service2 = $injector.get('service2');
+            spyOn(this.service1, 'getTest').and.returnValue('whatsoever');
+        }));
+
+        it('should be defined', function() {
+            expect(this.service2).toBeDefined();
+        });
+
+        it('should return `whatsoever`', function() {
+            expect(this.service2.getTest()).toBe('whatsoever');
+        });
 
     });
 
