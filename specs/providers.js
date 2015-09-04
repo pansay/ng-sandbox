@@ -1,13 +1,13 @@
 /* global describe, it, angular, expect, module, beforeEach, inject */
 
-describe('ngSandbox', function() {
+describe('providers/services/factories', function() {
 
     var expected = {};
 
     expected.token = 'abcdef';
 
     it('should be defined', function() {
-        expect(angular.module('sandbox')).toBeDefined();
+        expect(angular.module('providers')).toBeDefined();
     });
 
     var variants = [
@@ -22,7 +22,7 @@ describe('ngSandbox', function() {
         'unicornLauncherEservice'
     ];
 
-    beforeEach(module('sandbox'));
+    beforeEach(module('providers'));
 
     function test(tested) {
 

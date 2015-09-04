@@ -1,7 +1,5 @@
 /* global angular */
 
-angular.module('spies', []);
-
 function service1() {
     var test = 'whatsoever';
     this.getTest = function() {
@@ -15,7 +13,7 @@ function service2(service1) {
     };
 }
 
-angular.module('spies')
+angular.module('spies', [])
     .service('service1', service1)
     .service('service2', ['service1', service2])
     ;

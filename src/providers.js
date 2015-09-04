@@ -1,8 +1,5 @@
 /* global angular */
 
-angular.module('sandbox', [])
-    .constant('token', 'abc');
-
 function unicornLauncherA (token) {
     var tokenSuffix = 'def';
     return {
@@ -37,7 +34,8 @@ function unicornLauncherEdecorated ($delegate) {
     return $delegate;
 }
 
-angular.module('sandbox')
+angular.module('providers', [])
+    .constant('token', 'abc')
     .factory('unicornLauncherAfactory', ['token', unicornLauncherA])
     .factory('unicornLauncherBfactory', ['token', unicornLauncherB])
     .factory('unicornLauncherCfactory', ['token', unicornLauncherC])
@@ -49,4 +47,5 @@ angular.module('sandbox')
     .provider('unicornLauncherEservice', ['token', unicornLauncherE])
     .config(['$provide', function($provide) {
         $provide.decorator('unicornLauncherCservice', unicornLauncherEdecorated);
-    }]);
+    }])
+    ;
